@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+main,
+footer > div,
+header {
+    margin: auto;
+    max-width: 1350px;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+.grayscale:hover {
+    transition: 1.5s;
+    filter: none;
+    -webkit-filter: grayscale(0);
+}
+
+.background > img{
+    object-fit: cover;
+    width: 100vw;
+    height: 45vh
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 15px 5vw 0 5vw;
+    height: 10vh;
+}
+
+header > a {
+    color: white;
+    position: relative;
+    left: -4vw;
+}
+
+header > nav {
+    display: flex;
+    gap: 15px;
+}
+
+header > nav > a {
+    color: white;
+}
+
+.home {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.home > div{
+    position: relative;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 135px;
+    max-width: 90vw;
+    background-color: #325CE8;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 21px 42px;
+}
+
+.cards > ul,
+.cards > ul > li,
+.cards > ul > li > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards > ul {
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.cards > ul > li {
+    flex-direction: column;
+    gap: 20px;
+    width: 330px;
+    height: 350px;
+    padding: 60px 50px;
+    box-shadow: 0px 0px 11px 12px rgba(0,0,0,0.05);
+}
+
+.cards > ul > li > div {
+    width: 95px;
+    height: 75px;
+    box-shadow: 0px 0px 11px 12px rgba(0,0,0,0.05);
+}
+
+footer {
+    background-color: #1D1B1B;
+    color: white;
+}
+
+footer > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 64px 48px;
+    gap: 20px;
+}
+
+footer > div > div {
+    max-width: 310px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer > div > :nth-child(2),
+footer > div > :nth-child(3) {
+    padding-left: 40px;
+}
+
+footer li {
+    list-style: disc;
+    padding: 10px 0;
+}
