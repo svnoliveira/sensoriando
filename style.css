@@ -420,6 +420,11 @@ footer li {
         gap: 10px;
         padding: 21px 10px;
     }
+
+    .dialog-container button > h5 {
+        font-size: 18px;
+    }
+
     .home > div > button {
         text-align: center;
         width: 70vw;
