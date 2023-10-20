@@ -17,7 +17,6 @@ ul {
     list-style: none;
 }
 
-.dropdown,
 button {
     cursor: pointer;
     padding: 12px 30px 14px 30px;
@@ -122,16 +121,18 @@ header > a {
 header > nav {
     display: flex;
     gap: 15px;
+    width: 100%;
+    justify-content: space-between;
 }
 
-header > nav > a {
+header > nav a {
     color: white;
     text-shadow: 2px 3px 2px black;
     display: flex;
     align-items: center;
 }
 
-header > nav > button {
+header > nav button {
     background-color: transparent;
     color: white;
     border: solid white 2px;
@@ -141,6 +142,21 @@ header > nav > button {
         border: solid #325CE8 2px;
         transition: 0.3s; 
     }
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+.dropdown-content {
+    display: flex;
+    gap: 20px;
+}
+
+header > nav > div > img {
+    display: none;
 }
 
 /* =============================home titlebar================================ */
@@ -166,38 +182,93 @@ header > nav > button {
     padding: 21px 42px;
 }
 
-.home .dropdown {
+.home > div > button {
     background-color: white;
-    color: #325CE8;
     position: relative;
     cursor: pointer;
 }
 
-.home .dropdown:hover .dropdown-content {
+.home > div > button > a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: #325CE8;
+}
+
+/* ==============================modal=================================== */
+
+dialog {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.4), 
+        rgba(0, 0, 0, 0.5)
+    );
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.dialog-container {
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    height: 60vh;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
 }
 
-.home .dropdown-content {
-    display: none;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    gap: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    padding: 2px 2px;
-    z-index: 1;
-    transition: 0.3s ease-in;
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.home .dropdown-content div{
-    height: 54px;
+.dialog-container button {
+    background-color: #325CE8;
+    padding: 4px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.home .dropdown-content button{
-    color: #325CE8;
-    background-color: white;
+.dialog-container button > a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 28px;
+}
+
+.dialog-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.dialog-container ul li {
+    width: 200px;
+    height: 100px;
+    border: solid 2px black;
+    cursor: pointer;
+}
+
+dialog:not(:target):not([open]) {
+    display: none; 
 }
 
 /* =============================cards================================ */
@@ -329,9 +400,9 @@ footer li {
         height: fit-content;
     }
 
-    header > a {
+    header > nav > a {
         left: 0;
-        margin-bottom: 15px;
+        margin-bottom: 45px;
     }
 
     header > nav {
@@ -339,9 +410,6 @@ footer li {
         align-items: center;
     }
 
-    header > nav > a{
-        display: none;
-    }
 }
 
 @media screen and (max-width: 500px){
@@ -352,10 +420,54 @@ footer li {
         gap: 10px;
         padding: 21px 10px;
     }
-    .dropdown,
-    .dropdown-content button {
+    .home > div > button {
         text-align: center;
         width: 70vw;
+    }
+
+    .dropdown-content {
+        display: none;
+    }
+    
+    .dropdown {
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .dropdown img {
+        width: 40px;
+        height: 40px;
+        display: block;
+        position: absolute;
+        bottom: 124px;
+        left: 15px;
+        cursor: pointer;
+    }
+    .dropdown > img:hover + .dropdown-content {
+        display: flex;
+        visibility: visible;
+        flex-direction: column;
+    }
+
+    .dropdown-content {
+        visibility: hidden;
+        position: absolute;
+        left: 16px;
+        top: -68px;
+        gap: 26px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.7), 
+            rgba(0, 0, 0, 0.8)
+        );
+        border-radius: 5px;
+        padding: 2px 2px;
+        z-index: 1;
+        transition: 0.3s ease-in;
+    }
+
+    .dropdown-content a {
+        padding: 10px 25px;
     }
 }
 
