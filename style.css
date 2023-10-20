@@ -91,11 +91,12 @@ header {
     height: 10vh;
 }
 
-header > a {
+
+header nav a {
     color: white;
     text-shadow: 2px 3px 2px black;
     position: relative;
-    left: -4vw;
+    left: 0vw;
     transition: all .35s ease;
     
     &::before {
@@ -122,7 +123,10 @@ header > nav {
     display: flex;
     gap: 15px;
     width: 100%;
-    justify-content: space-between;
+}
+
+header > nav > a {
+    margin-right: auto;
 }
 
 header > nav a {
@@ -185,7 +189,14 @@ header > nav > div > img {
 .home > div > button {
     background-color: white;
     position: relative;
-    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+        background-color: #0AD2BA;
+    }
+}
+
+.home > div > button:hover a {
+    color: white;
 }
 
 .home > div > button > a{
@@ -410,6 +421,9 @@ footer li {
         align-items: center;
     }
 
+    header > nav > a {
+        margin-right: 0;
+    }
 }
 
 @media screen and (max-width: 500px){
@@ -437,6 +451,9 @@ footer li {
     .dropdown {
         width: 100vw;
         justify-content: center;
+        position: relative;
+        top: -67px;
+        left: 20px;
     }
 
     .dropdown img {
@@ -444,21 +461,22 @@ footer li {
         height: 40px;
         display: block;
         position: absolute;
-        bottom: 124px;
-        left: 15px;
+        bottom: 0px;
+        left: 0px;
         cursor: pointer;
     }
-    .dropdown > img:hover + .dropdown-content {
-        display: flex;
-        visibility: visible;
+    .dropdown:hover .dropdown-content {
+        display: block;
         flex-direction: column;
+        z-index: 10;
+        padding-bottom: 20px;
     }
 
     .dropdown-content {
-        visibility: hidden;
+        display: none;
         position: absolute;
-        left: 16px;
-        top: -68px;
+        top: 0px;
+        left: 0;
         gap: 26px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         background: linear-gradient(
