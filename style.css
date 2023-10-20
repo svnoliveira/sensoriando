@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ========================geral============================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Inter', sans-serif;
 }
 
 *::before,
@@ -15,8 +17,12 @@ ul {
     list-style: none;
 }
 
+.dropdown,
 button {
     cursor: pointer;
+    padding: 12px 30px 14px 30px;
+    border-radius: 4px;
+    width: fit-content;
 }
 
 a {
@@ -27,6 +33,7 @@ main,
 footer > div,
 header {
     margin: auto;
+    /* editar largura máxima da página abaixo*/
     max-width: 1350px;
 }
 
@@ -41,12 +48,35 @@ header {
     -webkit-filter: grayscale(0);
 }
 
-.background > img{
-    object-fit: cover;
+.font-36px {
+    font: 700 36px "Poppins", sans-serif;
+}
+
+.font-27px {
+    font: 700 27px "Poppins", sans-serif;
+}
+
+.font-22px {
+    font: 500 27px "Poppins", sans-serif;
+}
+
+.font-17px {
+    font: 17.5px "Poppins", sans-serif;
+}
+
+.font-16px {
+    font: 500 16px "Poppins", sans-serif;
+}
+
+/* =============================background================================ */
+
+.background > img {
+    object-fit: initial;
     width: 100vw;
     height: 45vh
 }
 
+/* =============================header================================ */
 
 header {
     display: flex;
@@ -64,8 +94,29 @@ header {
 
 header > a {
     color: white;
+    text-shadow: 2px 3px 2px black;
     position: relative;
     left: -4vw;
+    transition: all .35s ease;
+    
+    &::before {
+        content: ""; 
+        position: absolute;
+        width: 5%;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        visibility: hidden;
+        -webkit-transition: all 0.3s ease-in-out 0s; 
+        transition: all 0.3s ease-in-out 0s; 
+    }
+    &:hover {
+        &::before {
+            visibility: visible;
+            width: 100%;
+        }   
+    }   
 }
 
 header > nav {
@@ -75,7 +126,24 @@ header > nav {
 
 header > nav > a {
     color: white;
+    text-shadow: 2px 3px 2px black;
+    display: flex;
+    align-items: center;
 }
+
+header > nav > button {
+    background-color: transparent;
+    color: white;
+    border: solid white 2px;
+    &:hover {
+        background-color: #325CE8;
+        color: white;
+        border: solid #325CE8 2px;
+        transition: 0.3s; 
+    }
+}
+
+/* =============================home titlebar================================ */
 
 .home {
     max-width: 1250px;
@@ -98,6 +166,42 @@ header > nav > a {
     padding: 21px 42px;
 }
 
+.home .dropdown {
+    background-color: white;
+    color: #325CE8;
+    position: relative;
+    cursor: pointer;
+}
+
+.home .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.home .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    gap: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 2px 2px;
+    z-index: 1;
+    transition: 0.3s ease-in;
+}
+
+.home .dropdown-content div{
+    height: 54px;
+}
+
+.home .dropdown-content button{
+    color: #325CE8;
+    background-color: white;
+}
+
+/* =============================cards================================ */
+
 .cards > ul,
 .cards > ul > li,
 .cards > ul > li > div {
@@ -115,10 +219,35 @@ header > nav > a {
 .cards > ul > li {
     flex-direction: column;
     gap: 20px;
+    /* editar largura do card abaixo*/
     width: 330px;
     height: 350px;
     padding: 60px 50px;
     box-shadow: 0px 0px 11px 12px rgba(0,0,0,0.05);
+}
+
+.cards > ul > li a{
+    position: relative;
+    text-decoration: none;
+    transition: all .35s ease;
+    color: black;
+
+    &::before {
+        content: ""; 
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: black;   
+        -webkit-transition: all 0.3s ease-in-out 0s; 
+        transition: all 0.3s ease-in-out 0s; 
+    }
+    &:hover {
+        &::before {
+            width: 100%;
+        }   
+    }   
 }
 
 .cards > ul > li > div {
@@ -126,6 +255,8 @@ header > nav > a {
     height: 75px;
     box-shadow: 0px 0px 11px 12px rgba(0,0,0,0.05);
 }
+
+/* =============================footer================================ */
 
 footer {
     background-color: #1D1B1B;
@@ -148,6 +279,17 @@ footer > div > div {
     gap: 10px;
 }
 
+footer > div > div > div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer > div > div > div img{
+    height: 15px;
+    width: 15px;
+}
+
 footer > div > :nth-child(2),
 footer > div > :nth-child(3) {
     padding-left: 40px;
@@ -156,4 +298,85 @@ footer > div > :nth-child(3) {
 footer li {
     list-style: disc;
     padding: 10px 0;
+}
+
+.sobre-nos > button {
+    background-color: #325CE8;
+    color: white;
+    &:hover {
+        background-color: #0AD2BA;
+        transition: 0.3s; 
+    }
+}
+
+/* =============================mobile================================ */
+
+@media screen and (max-width: 1300px){
+    .background > img {
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 960px){
+    header {
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.4), 
+            rgba(0, 0, 0, 0.5)
+        );
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 20px;
+        height: fit-content;
+    }
+
+    header > a {
+        left: 0;
+        margin-bottom: 15px;
+    }
+
+    header > nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header > nav > a{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .home > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 21px 10px;
+    }
+    .dropdown,
+    .dropdown-content button {
+        text-align: center;
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    footer > div {
+        flex-direction: column;
+        align-items: center;
+        padding: 64px 10px;
+    }
+    footer > div > div{
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    footer > div > :nth-child(2),
+    footer > div > :nth-child(3) {
+        padding-left: 0;
+    }
+    footer > div > :nth-child(4) {
+        align-items: baseline;
+    }
+    .sobre-nos > p {
+        text-align: center;
+    }
 }
