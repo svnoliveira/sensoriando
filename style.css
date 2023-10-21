@@ -98,25 +98,24 @@ header nav a {
     position: relative;
     left: 0vw;
     transition: all .35s ease;
-    
-    &::before {
-        content: ""; 
-        position: absolute;
-        width: 5%;
-        height: 3px;
-        bottom: 0;
-        left: 0;
-        background-color: white;
-        visibility: hidden;
-        -webkit-transition: all 0.3s ease-in-out 0s; 
-        transition: all 0.3s ease-in-out 0s; 
-    }
-    &:hover {
-        &::before {
-            visibility: visible;
-            width: 100%;
-        }   
-    }   
+}
+
+header nav a::before {
+    content: ""; 
+    position: absolute;
+    width: 5%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out 0s; 
+    transition: all 0.3s ease-in-out 0s; 
+}
+
+header nav a:hover::before {
+    visibility: visible;
+    width: 100%;
 }
 
 header > nav {
@@ -191,9 +190,10 @@ header > nav > div > img {
     background-color: white;
     position: relative;
     transition: 0.4s;
-    &:hover {
-        background-color: #0AD2BA;
-    }
+}
+
+.home > div > button:hover {
+    background-color: #0AD2BA;
 }
 
 .home > div > button:hover a {
@@ -314,23 +314,22 @@ dialog:not(:target):not([open]) {
     text-decoration: none;
     transition: all .35s ease;
     color: black;
+}
 
-    &::before {
-        content: ""; 
-        position: absolute;
-        width: 50%;
-        height: 3px;
-        bottom: 0;
-        left: 0;
-        background-color: black;   
-        -webkit-transition: all 0.3s ease-in-out 0s; 
-        transition: all 0.3s ease-in-out 0s; 
-    }
-    &:hover {
-        &::before {
-            width: 100%;
-        }   
-    }   
+.cards > ul > li a::before {
+    content: ""; 
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: black;   
+    -webkit-transition: all 0.3s ease-in-out 0s; 
+    transition: all 0.3s ease-in-out 0s; 
+}
+
+.cards > ul > li a:hover::before {
+    width: 100%;
 }
 
 .cards > ul > li > div {
