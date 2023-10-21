@@ -140,12 +140,13 @@ header > nav button {
     background-color: transparent;
     color: white;
     border: solid white 2px;
-    &:hover {
-        background-color: #325CE8;
-        color: white;
-        border: solid #325CE8 2px;
-        transition: 0.3s; 
-    }
+}
+
+header > nav button:hover {
+    background-color: #325CE8;
+    color: white;
+    border: solid #325CE8 2px;
+    transition: 0.3s; 
 }
 
 .dropdown {
@@ -385,10 +386,11 @@ footer li {
 .sobre-nos > button {
     background-color: #325CE8;
     color: white;
-    &:hover {
-        background-color: #0AD2BA;
-        transition: 0.3s; 
-    }
+}
+
+.sobre-nos > button:hover {
+    background-color: #0AD2BA;
+    transition: 0.3s; 
 }
 
 /* =============================mobile================================ */
